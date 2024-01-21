@@ -101,7 +101,7 @@ local function SetupVehicleMenu()
                 title = 'Flip Vehicle',
                 icon = 'car-burst',
                 type = 'client',
-                event = 'qb-radialmenu:flipVehicle',
+                event = 'jim-mechanic:flipvehicle',
                 shouldClose = true
             }
         end
