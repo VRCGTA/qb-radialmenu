@@ -93,6 +93,8 @@ local function SetupVehicleMenu()
         VehicleMenu.items[#VehicleMenu.items + 1] = Config.VehicleDoors
         if Config.EnableExtraMenu then VehicleMenu.items[#VehicleMenu.items + 1] = Config.VehicleExtras end
 
+        VehicleMenu.items[#VehicleMenu.items + 1] = Config.VehicleWindows
+
         if not IsVehicleOnAllWheels(Vehicle) then
             VehicleMenu.items[#VehicleMenu.items + 1] = {
                 id = 'vehicle-flip',
@@ -295,6 +297,25 @@ RegisterNetEvent('qb-radialmenu:client:openDoor', function(data)
             else
                 SetVehicleDoorOpen(closestVehicle, door, false, false)
             end
+        end
+    else
+        QBCore.Functions.Notify(Lang:t("error.no_vehicle_found"), 'error', 2500)
+    end
+end)
+
+RegisterNetEvent('qb-radialmenu:client:openWindow', function(data)
+    local string = data.id
+    local replace = string:gsub("door", "")
+    local door = tonumber(replace)
+    local ped = PlayerPedId()
+    local closestVehicle = GetVehiclePedIsIn(ped) ~= 0 and GetVehiclePedIsIn(ped) or getNearestVeh()
+    if closestVehicle ~= 0 then
+        print("vehicle window")
+        print(IsVehicleWindowIntact(closestVehicle, door))
+        if IsVehicleWindowIntact(closestVehicle, door) then
+            RollDownWindow(closestVehicle, door)
+        else
+            RollUpWindow(closestVehicle, door)
         end
     else
         QBCore.Functions.Notify(Lang:t("error.no_vehicle_found"), 'error', 2500)

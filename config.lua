@@ -348,6 +348,29 @@ Config.VehicleDoors = {
     }
 }
 
+Config.VehicleWindows = {
+    id = 'vehiclewindows',
+    title = 'Vehicle Windows',
+    icon = 'window-maximize',
+    items = {
+        {
+            id = 'door0',
+            title = 'Drivers door',
+            icon = 'car-side',
+            type = 'client',
+            event = 'qb-radialmenu:client:openWindow',
+            shouldClose = false
+        }, {
+            id = 'door1',
+            title = 'Passengers door',
+            icon = 'car-side',
+            type = 'client',
+            event = 'qb-radialmenu:client:openWindow',
+            shouldClose = false
+        }
+    }
+}
+
 Config.VehicleExtras = {
     id = 'vehicleextras',
     title = 'Vehicle Extras',
