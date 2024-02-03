@@ -562,6 +562,30 @@ Config.JobInteractions = {
             shouldClose = true
         }
     },
+    ["crazytaxi"] = {
+        {
+            id = 'togglemeter',
+            title = 'Show/Hide Meter',
+            icon = 'eye-slash',
+            type = 'client',
+            event = 'azqb-taxi:client:toggleMeter',
+            shouldClose = false
+        }, {
+            id = 'togglemouse',
+            title = 'Start/Stop Meter',
+            icon = 'hourglass-start',
+            type = 'client',
+            event = 'azqb-taxi:client:enableMeter',
+            shouldClose = true
+        }, {
+            id = 'npc_mission',
+            title = 'NPC Mission',
+            icon = 'taxi',
+            type = 'client',
+            event = 'azqb-taxi:client:DoTaxiNpc',
+            shouldClose = true
+        }
+    },
     ["tow"] = {
         {
             id = 'togglenpc',
