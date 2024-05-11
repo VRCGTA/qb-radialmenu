@@ -166,7 +166,7 @@ local function IsPoliceOrEMS()
 end
 
 local function IsDowned()
-    return (PlayerData.metadata["isdead"] or PlayerData.metadata["inlaststand"])
+    return (PlayerData.condition.in_dead or PlayerData.condition.in_last_stand)
 end
 
 local function SetupRadialMenu()
